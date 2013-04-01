@@ -1,0 +1,41 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncvstylehlettre}
+
+\setlength{\parskip}{6\p@}
+\definecolor{addresscolor}{rgb}{0.45,0.45,0.45}% dark grey
+
+\newcommand*{\location}[1]{\def\@location{#1}}
+\renewcommand*{\address}[1]{\def\@address{#1}}
+\renewcommand*{\addresssymbol}{\Letter~}
+\renewcommand*{\emailsymbol}{\textbf{@}~}
+
+\renewcommand*{\makelettertitle}{%
+  \vspace*{-4\baselineskip}
+  \hspace*{-2em}
+  % sender contact info
+  \begin{minipage}[t]{.5\textwidth}%
+    \addressfont\textcolor{addresscolor}{%
+      {\bfseries\upshape\@firstname~\@familyname}\@firstdetailselementfalse%
+      \ifthenelse{\isundefined{\@address}}{}{\makenewline\addresssymbol\@address}%
+      \ifthenelse{\isundefined{\@mobile}}{}{\makenewline\mobilesymbol\@mobile}%
+      \ifthenelse{\isundefined{\@email}}{}{\makenewline\emailsymbol\emaillink{\@email}}%
+    }%
+  \end{minipage}
+  % date
+  \hfill\hbox{\@location, le \today}\par
+  % recipient block
+  \hfill\begin{minipage}{.5\textwidth}
+    \raggedleft%
+    \addressfont%
+    {\bfseries\upshape\@recipientname}\\%
+    \@recipientaddress%
+  \end{minipage}\vspace{6\baselineskip}\par
+  % opening
+  \@opening\\[1.5em]%
+
+  \hspace{0pt}\par\vspace{-\baselineskip}\vspace{-\parskip}}
+
+\renewcommand*{\makeletterclosing}{
+  \@closing\vspace{2\baselineskip}\par
+  \hfill\@firstname~\@familyname\hspace{4em}
+}
