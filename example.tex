@@ -1,0 +1,26 @@
+\documentclass[12pt]{lettresimple}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{lipsum}
+
+% personal data
+\name{Paul Martin}
+%\signature{signature}
+\address{17 rue des moutons éléctriques\\
+98000 New York}
+\location{New York}
+\mobile{01\,02\,03\,04\,05}
+\email{paul.martin@example.com}
+
+\recipient{Destinataire}{Addresse du Destinataire}
+
+\opening{Madame, Monsieur,}
+\closing{Cordialement, dans l'attente d'un retour de votre part,}
+
+\begin{document}
+
+\makelettertitle
+\lipsum[1-6]
+\makeletterclosing
+
+\end{document}
