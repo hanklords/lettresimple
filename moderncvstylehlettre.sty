@@ -6,6 +6,7 @@
 
 \newcommand*{\name}[1]{\def\@name{#1}}
 \newcommand*{\location}[1]{\def\@location{#1}}
+\newcommand*{\signature}[1]{\def\@signature{#1}}
 \renewcommand*{\address}[1]{\def\@address{#1}}
 \renewcommand*{\addresssymbol}{\Letter~}
 \renewcommand*{\emailsymbol}{\textbf{@}~}
@@ -41,5 +42,6 @@
 
 \renewcommand*{\makeletterclosing}{
   \@closing\vspace{2\baselineskip}\par
-  \hfill\@name\hspace{4em}
+  \hfill\@name\hspace{4em}\par
+  \ifthenelse{\isundefined{\@signature}}{}{\raggedleft\includegraphics[width=5cm]{\@signature}}%
 }
