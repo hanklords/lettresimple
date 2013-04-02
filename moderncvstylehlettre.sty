@@ -4,10 +4,14 @@
 \setlength{\parskip}{6\p@}
 \definecolor{addresscolor}{rgb}{0.45,0.45,0.45}% dark grey
 
+\newcommand*{\name}[1]{\def\@name{#1}}
 \newcommand*{\location}[1]{\def\@location{#1}}
 \renewcommand*{\address}[1]{\def\@address{#1}}
 \renewcommand*{\addresssymbol}{\Letter~}
 \renewcommand*{\emailsymbol}{\textbf{@}~}
+\renewcommand*{\emaillink}{%
+    \href{mailto:\@name\%20<\@email>}{{\@email}}
+}
 
 \renewcommand*{\makelettertitle}{%
   \vspace*{-4\baselineskip}
@@ -15,10 +19,10 @@
   % sender contact info
   \begin{minipage}[t]{.5\textwidth}%
     \addressfont\textcolor{addresscolor}{%
-      {\bfseries\upshape\@firstname~\@familyname}\@firstdetailselementfalse%
+      {\bfseries\upshape\@name}\@firstdetailselementfalse%
       \ifthenelse{\isundefined{\@address}}{}{\makenewline\addresssymbol\@address}%
       \ifthenelse{\isundefined{\@mobile}}{}{\makenewline\mobilesymbol\@mobile}%
-      \ifthenelse{\isundefined{\@email}}{}{\makenewline\emailsymbol\emaillink{\@email}}%
+      \ifthenelse{\isundefined{\@email}}{}{\makenewline\emailsymbol\emaillink}%
     }%
   \end{minipage}
   % date
@@ -37,5 +41,5 @@
 
 \renewcommand*{\makeletterclosing}{
   \@closing\vspace{2\baselineskip}\par
-  \hfill\@firstname~\@familyname\hspace{4em}
+  \hfill\@name\hspace{4em}
 }
