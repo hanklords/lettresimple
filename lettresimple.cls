@@ -107,7 +107,7 @@
 
 \newcommand*{\makeletterclosing}{
   %closing
-  \@closing\vspace{2\baselineskip}\par
+  \par\@closing\vspace{2\baselineskip}\par
   %signature
   \hfill\@name\hspace{4em}\par
   \ifthenelse{\isundefined{\@signature}}{}{\raggedleft\includegraphics[width=5cm]{\@signature}}%
