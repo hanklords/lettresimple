@@ -55,6 +55,9 @@
 \setlength{\parindent}{0\p@}
 \setlength{\parskip}{6\p@}
 
+\newlength{\headerspace}
+\setlength{\headerspace}{6\baselineskip}
+
 \definecolor{addresscolor}{rgb}{0.45,0.45,0.45}% dark grey
 
 \newcommand*{\name}[1]{\def\@name{#1}}
@@ -100,7 +103,7 @@
     \raggedleft%
     {\footnotesize\bfseries\upshape\@recipientname}\\%
     \footnotesize\@recipientaddress%
-  \end{minipage}\vspace{6\baselineskip}\par
+  \end{minipage}\vspace{\headerspace}\par
   % opening
   \@opening\vspace{\baselineskip}\par
 }
